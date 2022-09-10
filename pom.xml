@@ -31,6 +31,7 @@
 
     <modules>
         <module>web</module>
+        <module>sensor</module>
     </modules>
 
     <build>
