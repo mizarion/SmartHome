@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  web:
+    image: smarthome/web:0.0.1-SNAPSHOT
+    environment:
+      PROFILE: "dev"
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
