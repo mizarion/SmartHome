@@ -2,6 +2,8 @@ package com.example.web;
 
 //import com.example.sensor.model.SensorModel;
 
+import com.example.sensor.model.SensorModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -16,30 +18,32 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping("test")
+@Slf4j
 public class SensorController {
-
-    public static final String url = "http://localhost:8081/api/example";
-
+    private static final String SENSOR_URL = "http://localhost:8081/api/example";
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     @GetMapping("1")
-    ResponseEntity<String> getSensor() {
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        System.out.println(response);
+    public ResponseEntity<String> getSensor() {
+        ResponseEntity<String> response = restTemplate.getForEntity(SENSOR_URL, String.class);
+        log.info(response.toString());
         return response;
     }
 
     @GetMapping("2")
-    ResponseEntity<String> postSensor() throws URISyntaxException {
-        return restTemplate.postForEntity(new URI(url + "?temperature=50&humidity=20"), null, String.class);
+    public ResponseEntity<String> postSensor() throws URISyntaxException {
+        return restTemplate.postForEntity(new URI(SENSOR_URL + "?temperature=50&humidity=20"), null, String.class);
     }
 
-// todo
-//    @GetMapping("3")
-//    ResponseEntity<SensorModel> exchangeSensor() {
-//        SensorModel sensorModel = new SensorModel(30, 50);
-//        HttpEntity<SensorModel> request = new HttpEntity<>(sensorModel);
-//        return restTemplate.exchange(url, HttpMethod.POST, request, SensorModel.class);
-//    }
+    @GetMapping("3")
+    ResponseEntity<SensorModel> exchangeSensor() {
+        HttpEntity<SensorModel> modelEntity = new HttpEntity<>(
+                SensorModel.builder()
+                        .temperature(30)
+                        .humidity(50)
+                        .build()
+        );
+        return restTemplate.exchange(SENSOR_URL, HttpMethod.POST, modelEntity, SensorModel.class);
+    }
 }
