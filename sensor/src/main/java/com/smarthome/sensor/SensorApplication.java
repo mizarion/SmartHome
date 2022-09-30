@@ -1,4 +1,4 @@
-package com.example.sensor;
+package com.smarthome.sensor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

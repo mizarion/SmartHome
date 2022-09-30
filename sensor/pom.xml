@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>SmartHome</artifactId>
-        <groupId>com.example</groupId>
+        <groupId>com.smarthome</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.example.sensor</groupId>
+    <groupId>com.smarthome.sensor</groupId>
     <artifactId>sensor</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sensor</name>
@@ -17,10 +17,6 @@
         <docker.image.prefix>smarthome</docker.image.prefix>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>

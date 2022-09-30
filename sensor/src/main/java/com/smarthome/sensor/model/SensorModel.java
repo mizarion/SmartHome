@@ -1,4 +1,4 @@
-package com.example.sensor.model;
+package com.smarthome.sensor.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

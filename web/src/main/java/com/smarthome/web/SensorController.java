@@ -1,8 +1,6 @@
-package com.example.web;
+package com.smarthome.web;
 
-//import com.example.sensor.model.SensorModel;
-
-import com.example.sensor.model.SensorModel;
+import com.smarthome.sensor.model.SensorModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
