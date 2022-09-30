@@ -14,4 +14,6 @@ public class SensorModel {
     private int temperature;
     @Range(min = 0, max = 100)
     private int humidity;
+
+    private int port;
 }

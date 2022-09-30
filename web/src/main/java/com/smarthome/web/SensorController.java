@@ -18,7 +18,7 @@ import java.net.URISyntaxException;
 @RequestMapping("test")
 @Slf4j
 public class SensorController {
-    private static final String SENSOR_URL = "http://localhost:8081/api/example";
+    private static final String SENSOR_URL = "http://sensor/api/example";
     @Autowired
     private RestTemplate restTemplate;
 
