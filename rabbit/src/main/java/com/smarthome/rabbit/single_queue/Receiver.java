@@ -1,4 +1,4 @@
-package com.smarthome.rabbit;
+package com.smarthome.rabbit.single_queue;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -12,5 +12,4 @@ public class Receiver {
     public void receive(String message) {
         log.info("receive: '" + message + "'");
     }
-
 }

@@ -1,4 +1,4 @@
-package com.smarthome.rabbit;
+package com.smarthome.rabbit.single_queue;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ public class Config {
     static final String queueName = "smarthome.rabbit";
 
     @Bean
-    Queue queue() {
+    Queue single_queue() {
         return new Queue(queueName, false);
     }
 }

@@ -1,2 +1,4 @@
 # Endpoints:
-* localhost:8090/test/1
+* GET localhost:8090/single_queue
+* GET localhost:8090/workers
+* GET localhost:8090/publisher

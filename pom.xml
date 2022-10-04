@@ -52,6 +52,7 @@
         <module>web</module>
         <module>sensor</module>
         <module>eureka</module>
+        <module>rabbit</module>
     </modules>
 
 

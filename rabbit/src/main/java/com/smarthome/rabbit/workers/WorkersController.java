@@ -1,4 +1,4 @@
-package com.smarthome.rabbit;
+package com.smarthome.rabbit.workers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -9,17 +9,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("test")
-public class Controller {
+@RequestMapping("workers")
+public class WorkersController {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @GetMapping("1")
-    public void get() {
-        String message = "hello world";
-        rabbitTemplate.convertAndSend(Config.queueName, message);
-        log.info("send: '" + message + "'");
+    @GetMapping()
+    public void send10() {
+        for (int i = 0; i < 10; i++) {
+            String message = "hello world " + i;
+            rabbitTemplate.convertAndSend(WorkersConfig.queueName, message);
+            log.info("send: '" + message + "'");
+        }
     }
+
+
 }
 
