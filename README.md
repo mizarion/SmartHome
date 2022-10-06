@@ -1,33 +1,48 @@
 # SmartHome
 
-## Clone
-```bash
-git clone https://github.com/mizarion/SmartHome
-cd SmartHome/
-```
 
-## Build & Run  (docker)
-### Build 
-```
-mvn clean package dockerfile:build
-```
-### Run 
-```
-docker-compose -f docker/docker-compose.yml up
-```
+## Available scenarios:
 
-## Build & Run (IntelliJ IDEA)
-IDEA -> Alt+8 -> Run each service:
-* com/example/web/WebApplication.java
-* com/example/sensor/SensorApplication.java
+### RabbitMQ
+#### RUN:
+1.     docker compose -f .\docker\docker-compose-rabbitmq.yml up
+2.     RabbitExampleApplication
 
-## Available endpoints:
-#### 8081 (sensor)
+#### USE:
+* GET http://localhost:8090/single_queue
+* GET http://localhost:8090/workers
+* GET http://localhost:8090/publisher
+
+
+### Eureka + @LoadBalanced
+#### RUN:
+* EurekaApplication
+* WebApplication
+* SensorApplication (2+ instances)
+
+#### USE:
+
+##### eureka-service
+* GET http://localhost:8761
+
+##### web-service
+* GET http://localhost:8080/test/1
+* GET http://localhost:8080/test/2
+* GET http://localhost:8080/test/3
+
+##### sensor-service
 * GET  http://localhost:8081/api/example
 * POST http://localhost:8081/api/example
 
-#### 8080 (web)
-* GET http://localhost:8080/test/1
-* GET http://localhost:8080/test/2
+
+### Eureka + Spring Boot Admin
+#### RUN:
+* EurekaApplication
+* AdminApplication
+* ....
+
+#### USE:
+##### admin-service
+* http://localhost:9090
 
 
